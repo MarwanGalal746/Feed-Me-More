@@ -11,7 +11,8 @@ type SandwichRepositoryDb struct {
 }
 
 func (r SandwichRepositoryDb) Create(newSandwich Sandwich) (int, error) {
-	row := r.db.QueryRow(`INSERT INTO sandwich (name) VALUES ($1) RETURNING id`, newSandwich.Name)
+	row := r.db.QueryRow(`INSERT INTO sandwich (id, name) VALUES ($1, $2) RETURNING id`,
+		newSandwich.ID, newSandwich.Name)
 	var id int
 	err := row.Scan(&id)
 	fmt.Println(id)

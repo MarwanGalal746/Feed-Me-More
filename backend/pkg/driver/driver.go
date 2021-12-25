@@ -8,12 +8,8 @@ import (
 )
 
 func GetDbConnection() *sql.DB {
-	dataSourceName := fmt.Sprintf("host=%s port=%s dbname=%s user=%s password=%s sslmode=disable",
-		"localhost",
-		"5432",
-		"postgres",
-		"fmm-user",
-		"fmm-password")
+	dataSourceName := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		"postgres", 5432, "user", "mypassword", "user")
 	sqlDB, err := sql.Open("postgres", dataSourceName)
 	if err != nil {
 		fmt.Println(err)
@@ -22,5 +18,13 @@ func GetDbConnection() *sql.DB {
 	}
 	log.Println("connected to db ")
 	log.Println("pinged db")
+	_, err = sqlDB.Exec(`DROP TABLE IF EXISTS sandwich;`)
+	if err != nil {
+		panic(err)
+	}
+	_, err = sqlDB.Exec(`CREATE TABLE sandwich (ID INT PRIMARY KEY NOT NULL, NAME text);`)
+	if err != nil {
+		panic(err)
+	}
 	return sqlDB
 }

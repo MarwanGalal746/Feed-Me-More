@@ -1,7 +1,0 @@
-DROP TABLE drink CASCADE;
-DROP TABLE sandwich CASCADE;
-DROP TABLE dessert CASCADE;
-DROP TABLE meal_drinks CASCADE;
-DROP TABLE meal_sandwichs CASCADE;
-DROP TABLE meal_desserts CASCADE;
-DROP TABLE meal CASCADE;
