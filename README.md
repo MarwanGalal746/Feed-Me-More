@@ -17,7 +17,7 @@ docker-compose build
 docker-compose up
 ```
 
-now DB container and backen container are running, you can test the endpoints using [this postman collection](postman%collection/Feed-Me-More.postman_collection.json) by [Postman application](https://www.postman.com/).
+now DB container and backen container are running, you can test the endpoints using [this postman collection](postman%20collection/Feed-Me-More.postman_collection.json) by [Postman application](https://www.postman.com/).
 
 
 ## DB diagram
