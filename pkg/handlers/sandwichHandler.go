@@ -18,7 +18,9 @@ type SandwichHandlers struct {
 func (sandwichHandler SandwichHandlers) Create(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	var newSandwich sandwich.Sandwich
+	//fmt.Println(newSandwich.ID, " ", newSandwich.Name)
 	_ = json.NewDecoder(r.Body).Decode(&newSandwich)
+	fmt.Println(newSandwich.ID, " ", newSandwich.Name)
 	id, err := sandwichHandler.service.Create(newSandwich)
 	newSandwich.ID = int(uint(id))
 	//handling errors
@@ -33,6 +35,7 @@ func (sandwichHandler SandwichHandlers) Create(w http.ResponseWriter, r *http.Re
 		return
 	}
 	//sending the response
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(newSandwich)
 }
