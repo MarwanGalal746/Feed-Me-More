@@ -2,8 +2,9 @@
   <br>
   <h1>Feed Me More</h1>
 </div>
-
 ## Running
+
+- **Backend and database**
 
 First, You should install [Docker](https://www.docker.com/) in your machine
 
@@ -17,10 +18,13 @@ docker-compose build
 docker-compose up
 ```
 
-now DB container and backen container are running, you can test the endpoints using [this postman collection](postman%20collection/Feed-Me-More.postman_collection.json) by [Postman application](https://www.postman.com/).
+now DB container on port 5432 and backend container are running on , you can test the endpoints using [this postman collection](postman%20collection/Feed-Me-More.postman_collection.json) by [Postman application](https://www.postman.com/), or run the frontend container then test.
 
+- **Frontend**
 
-## DB diagram
+got o this [directory](./frontend/feed-me/) and run the fo;;owing command:
 
-![](database/db%20diagram.png)
+```
+docker-compose up
+```
 
